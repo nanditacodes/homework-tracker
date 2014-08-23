@@ -1,0 +1,17 @@
+
+<h1> Sign in here </h1>
+<%= form_tag verify_login_path do %>
+
+  <div class='field'>
+    <%= label_tag "User:" %>
+    <%= text_field_tag :name%>
+  </div>
+    <br>
+  <div class='field'>
+    <%= label_tag "Password:" %>
+    <%= password_field_tag :password%>
+  </div>
+  <div>
+    <%= submit_tag "Go!" %>
+  </div>
+<% end %>

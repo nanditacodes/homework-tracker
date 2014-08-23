@@ -1,0 +1,26 @@
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">Comments for <%=@completed_assignment.assignment.title%></div>
+  <br>
+  <ol>
+    <% @completed_assignment.comments.each do |comment| %>
+      <li><%= comment.body %></li>
+    <% end %>
+  </ol>
+  <h3> Add your comment </h3>
+  <div>
+    <%= form_for @comment, url: post_comment_path do |f|%>
+      <%= f.hidden_field :completed_assignment_id, value: params[:homework_id] %>
+      <div>
+        <%= f.text_area :body, rows: 10, cols:40 %>
+      </div>
+      <div>
+        <%= f.label :author, "Author:" %>
+        <%= f.text_field :author %>
+      </div>
+      <br>
+      <%= f.submit "Add Your Comment" %>
+    <% end %>
+  </div>
+</div>

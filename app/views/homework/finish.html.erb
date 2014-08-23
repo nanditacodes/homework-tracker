@@ -1,0 +1,29 @@
+<h1>User: <%= @completed_assignment.user.name %></h1>
+
+<%= form_for(@completed_assignment)  do |f| %>
+  <% if @completed_assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@completed_assignment.errors.count, "error") %> prohibited this completed_assignment from being saved:</h2>
+
+      <ul>
+      <% @completed_assignment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label "Assignment: " %>
+    <%= @completed_assignment.assignment.title %>
+  </div>
+  <div class="field">
+    <%= f.label "Github Url: " %>
+    <%= f.text_field :github_url %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
